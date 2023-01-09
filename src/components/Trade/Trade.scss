@@ -1,0 +1,29 @@
+.trade{
+
+    &__heading{
+        padding-left: 2rem;
+        color: #778CA2;
+        font-size: .9rem;
+        font-weight: 500;
+        padding-top: .8rem;
+        padding-bottom: .8rem;
+        background:#fff;
+        margin-top:1rem;
+        border:1px solid #f2f4f6;
+    }
+    .trade__item{
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        background: #fff;
+        padding-left: 2rem;
+        display:grid;
+        grid-template-columns: 22% 13% 13% 13% 13% 13% 13%;
+        font-size: .8rem;
+        border:1px solid #f2f4f6;
+
+        h4{
+            color: #778CA2;
+            font-weight: 500;
+        }
+    }
+}

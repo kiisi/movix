@@ -1,0 +1,16 @@
+.livemarket{
+    margin-top: 1rem;
+    display:flex;
+
+    &__title{
+        background:#000;
+        color:#fff;
+        padding:1rem 1.5rem;
+        width:max-content;
+    }
+    &__market{
+        padding:.5rem 1.5rem;
+        width:max-content;
+        font-size:.9rem;
+    }
+}

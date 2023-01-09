@@ -1,0 +1,52 @@
+.scaffold{
+    display:flex;
+
+    &__page{
+        flex:1;
+
+        &-menu{
+            background: #fff;
+
+            &--main{
+                display:flex;
+                padding:1rem;
+                padding-bottom: 5px;
+
+                &--item{
+                    padding:.8rem 1rem;
+                    margin-right: .4rem;
+                    border-radius: 3rem;
+                    font-size: .8rem;
+                    background:#f8faf8;
+
+                    &.active{
+                        background:#D71E0E;
+                        color:#fff;
+                    }
+                }
+            }
+            &--sub{
+                padding:1rem;
+                display:flex;
+
+                &--item{
+                    padding:.8rem 1rem;
+                    margin-right: .4rem;
+                    border-radius: 3rem;
+                    font-size: .8rem;
+                    background:#f8faf8;
+
+                    &.active{
+                        background:#D71E0E;
+                        color:#fff;
+                    }
+                }
+            }
+        }
+        &-products{
+            display:flex;
+            flex-wrap:wrap;
+        }
+        
+    }
+}

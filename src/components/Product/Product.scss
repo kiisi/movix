@@ -1,0 +1,39 @@
+.products{
+    width:100%;
+    max-width:28rem;
+    background:#fff;
+    margin-top:5px;
+    margin-right: 5px;
+
+    &__product{
+        display:grid;
+        grid-template-columns: 40% 20% 20% 20%;
+        padding-left: 2rem;
+        padding-top: .8rem;
+        padding-bottom: .8rem;
+        border-bottom: 1px solid #f2f4f6;
+        align-items: center;
+        font-size: .8rem;
+
+        h4{
+            color: #778CA2;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+    }
+}
+
+.btn-sell{
+    padding:5px 1rem;
+    border-radius: 5px;
+    color:#E55541;
+    border:1px solid #E55541;
+    width:max-content;
+}
+.btn-buy{
+    padding:5px 1rem;
+    border-radius: 5px;
+    color:#52965E;
+    border:1px solid #52965E;
+    width:max-content;
+}
