@@ -1,9 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Login.scss'
 import movixlogo from '../../assets/movix_logo.png';
 import Input from '../../components/Input/Input';
 import { Link } from 'react-router-dom';
 const Login = () => {
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <div className="login_scaffold">
       <div className="login">
@@ -13,9 +17,9 @@ const Login = () => {
           <p>Please sign-in to start your experience</p>
         </div>
 
-        <Input type="email"/>
+        <Input type="email" input={email} setInput={setEmail}/>
         <div className="login__divider"></div>
-        <Input type="password"/>
+        <Input type="password" input={password} setInput={setPassword}/>
         <div className="login__divider"></div>
         <div className="login__divider"></div>
         <div className="btn__auth">LOGIN</div>
