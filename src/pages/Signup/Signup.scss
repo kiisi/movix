@@ -33,5 +33,15 @@
                 font-size:1.4rem;
             }
         }
+
+        &__login{
+            font-size: 1.4rem;
+
+            a{
+                color:#B91C1C;
+                font-weight:500;
+                text-decoration: none;
+            }
+        }
     }
 }
