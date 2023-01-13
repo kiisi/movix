@@ -1,0 +1,37 @@
+.signup_scaffold{
+    min-height: 100vh;
+    display:grid;
+    place-items:center;
+    padding:4.8rem 1rem 4.8rem 1rem;
+
+    .signup{
+        width:100%;
+        max-width:45rem;
+        padding:4.8rem 2.8rem 3.6rem 2.8rem;
+        border-radius:1rem;
+        border:1px solid #000;
+        display:grid;
+        place-items:center;
+
+        &__divider{
+            height:1.5rem;
+        }
+
+        &__caps{
+            display:grid;
+            place-items:center;
+            text-align: center;
+            padding-top:2.3rem;
+            padding-bottom: 1.84rem;
+
+            h2{
+                font-size:1.8rem;
+                line-height:2.3rem;
+            }
+
+            p{
+                font-size:1.4rem;
+            }
+        }
+    }
+}
