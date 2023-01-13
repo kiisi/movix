@@ -15,6 +15,9 @@ const Navbar = () => {
         </div>
         <div className="nav__profile">
             <div className="nav__profile--name">Hi, $Fullname</div>
+            <div className="nav__profile--menu">
+              <div className="nav__profile--menu__lines"></div>
+            </div>
         </div>
     </div>
   )

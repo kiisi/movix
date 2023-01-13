@@ -24,6 +24,7 @@
         height:4rem;
         border-radius: 8px;
         overflow:hidden;
+        margin: 0 2rem;
 
         input{
             width:100%;
@@ -42,14 +43,41 @@
         span{
             color:#fff;
             margin-right: 5px;
+            cursor:pointer;
         }
     }
 
     &__profile{
+        display:flex;
+        align-items: center;
 
         &--name{
             color:#fff;
             font-size: 1.6rem;
+        }
+        &--menu{
+            height: 3.6rem;
+            width: 3.6rem;
+            background: #BE123C;
+            border-radius: 50%;
+            margin-left: 1rem;
+            display:grid;
+            place-items:center;
+
+            &__lines{
+
+                &::before, &::after{
+                    content:'';
+                    display:block;
+                    height:2px;
+                    width:2rem;
+                    border-radius: 10px;
+                    background:#fff;
+                }
+                &::after{
+                    margin-top:5px;
+                }
+            }
         }
     }
 }

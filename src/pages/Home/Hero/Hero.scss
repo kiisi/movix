@@ -1,7 +1,71 @@
 .hero-wrapper{
-    height:100vh;
+    height:fit-content;
     background:url('../../../assets/Poster.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    font-family: var(--secondary-font);
+
+    .hero{
+        padding-top:10rem;
+        padding-bottom: 15rem;
+        max-width:40rem;
+        width:100%;
+
+        &__divider{
+            height:1.5rem;
+        }
+
+        &__header{
+            font-size:4.8rem;
+            color:#fff;
+            font-family:var(--secondary-font);
+        }
+
+        &__content{
+            font-size: 1.8rem;
+            color:#fff;
+            font-family:var(--secondary-font);
+            font-weight:300;
+        }
+        &__rating{
+            color:#fff;
+            font-size:1.4rem;
+            font-weight: 400;
+            display:flex;
+
+            &--a{
+                margin-right:3rem;
+                display:flex;
+                align-items: center;
+
+                img{
+                    margin-right:1rem;
+                }
+            }
+            &--b{
+                display:flex;
+                align-items: center;
+
+                img{
+                    margin-right:1rem;
+                }
+            }
+        }
+        &__btn{
+            background:var(--primary-color);
+            padding:1rem 2rem;
+            width:fit-content;
+            border-radius:6px;
+            display:flex;
+            align-items: center;
+
+            span{
+                color:#fff;
+                padding-left: 6px;
+                font-size:1.4rem;
+                font-weight:700;
+            }
+        }
+    }
 }
