@@ -1,0 +1,38 @@
+.footer{
+    display:grid;
+    place-items:center;
+    font-family:var(--secondary-font);
+
+    &__divider{
+        height:2.5rem;
+    }
+
+    &__media{
+        display:flex;
+        align-items:center;
+        justify-content: space-around;
+        width:100%;
+        max-width:25rem;
+
+        img{
+            margin:1rem;
+        }
+    }
+    &__main{
+        font-size:1.8rem;
+        font-weight:700;
+        color:#111827;
+        display:flex;
+        flex-wrap:wrap;
+        align-items:center;
+        justify-content: space-around;
+        width:100%;
+        max-width:60rem;
+        padding:1rem;
+    }
+    &__copyright{
+        font-size:1.8rem;
+        color:#6B7280;
+        font-weight:700;
+    }
+}
