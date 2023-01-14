@@ -4,6 +4,7 @@ import FeaturedMovie from './FeaturedMovie/FeaturedMovie'
 import NewArrival from './NewArrival/NewArrival'
 import Casts from './Casts/Casts'
 import Footer from '../../layout/Footer/Footer'
+import ExclusiveVideos from './ExclusiveVideos/ExclusiveVideos'
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <Hero />
       <FeaturedMovie/>
       <NewArrival/>
+      <ExclusiveVideos/>
       <Casts/>
       <Footer/>
     </div>
