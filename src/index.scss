@@ -22,11 +22,16 @@ html{
 .max-wrapper{
   max-width:1600px;
   margin:0 auto;
+  position:relative;
 
   &__content{
-    width:94%;
+    width:90%;
     margin:0 auto;
   }
+}
+
+.standard__spacing--top{
+  padding-top: 10rem;
 }
 
 .btn__auth{

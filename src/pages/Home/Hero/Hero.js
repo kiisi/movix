@@ -11,7 +11,7 @@ const Hero = () => {
       <div className="max-wrapper__content">
         <Navbar />
         <div className="hero">
-          <h1 className="hero__header">John Wick 3: <br /> Parabellum </h1>
+          <h1 className="hero__header">John Wick 3: Parabellum </h1>
           <div className="hero__divider"></div>
           <div className="hero__rating">
             <div className="hero__rating--a">
