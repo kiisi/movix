@@ -1,4 +1,4 @@
-.featured-movie{
+.featured-casts{
     font-family:var(--secondary-font);
 
     &__divider{
@@ -22,13 +22,14 @@
         }
     }
     &__collection{
-        overflow:scroll; 
         display:flex;
+        white-space: nowrap;
+        overflow-x:auto;
+        width:100%;
 
         &::-webkit-scrollbar{
             display:none;
         }
-
         &--arrow-left, &--arrow-right{
             height: 5rem;
             width:5rem;
@@ -48,6 +49,18 @@
             right:0;
             top:50%;
             transform: translateY(-50%);
+        }
+
+        .cast{
+            margin-right:8rem;
+
+            &__img{
+                margin-bottom: 1rem;
+            }
+            &__caption{
+                font-size:1.8rem;
+                font-weight:700;
+            }
         }
     }
 }
