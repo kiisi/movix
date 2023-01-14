@@ -24,6 +24,7 @@
     &__collection{
         overflow:scroll; 
         display:flex;
+        scroll-behavior: smooth;
 
         &::-webkit-scrollbar{
             display:none;

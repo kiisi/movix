@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import './NewArrival.scss'
 import imdb from '../../../assets/imdb.png'
 import apple from '../../../assets/apple.png'
@@ -14,6 +14,18 @@ import MovieCard from '../../../components/MovieCard/MovieCard';
 
 const NewArrival = () => {
 
+    const collectionRef = useRef();
+
+    const arrowLeft = () =>{
+        let collection = collectionRef.current
+        collection.scrollLeft -= 330
+    }
+
+    const arrowRight = () =>{
+        let collection = collectionRef.current
+        collection.scrollLeft += 330
+    }
+
     return (
         <div className="max-wrapper standard__spacing--top">
             <div className="max-wrapper__content featured-movie">
@@ -23,9 +35,9 @@ const NewArrival = () => {
                 </div>
                 <div className="featured-movie__divider"></div>
                 <div className="featured-movie__divider"></div>
-                <div className="featured-movie__collection">
-                    <div className="featured-movie__collection--arrow-left"><img src={arrow_left} alt="arrow_left"/></div>
-                    <div className="featured-movie__collection--arrow-right"><img src={arrow_right} alt="arrow_right"/></div>
+                <div className="featured-movie__collection" ref={collectionRef}>
+                    <div className="featured-movie__collection--arrow-left" onClick={arrowLeft}><img src={arrow_left} alt="arrow_left"/></div>
+                    <div className="featured-movie__collection--arrow-right" onClick={arrowRight}><img src={arrow_right} alt="arrow_right"/></div>
                     <MovieCard favorite_img={favorite} movie_img={newarrival_1} ratings_imdb={imdb} ratings_apple={apple} title={"Dune"} rating_a={"80.0"} rating_b={"97"} genre={"Action, Adventure, Horror"} />
                     <MovieCard favorite_img={favorite} movie_img={newarrival_2} ratings_imdb={imdb} ratings_apple={apple} title={"No Time To Die"} rating_a={"82.0"} rating_b={"70"} genre={"Action, Adventure"}/>
                     <MovieCard favorite_img={favorite} movie_img={newarrival_3} ratings_imdb={imdb} ratings_apple={apple} title={"Shang-Chi and the Legend of the Ten Rings"} rating_a={"84.0"} rating_b={"87"} genre={"Animation, Action, Adventure"}/>

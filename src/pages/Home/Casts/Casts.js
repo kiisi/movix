@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import './Casts.scss'
 import arrow_right from '../../../assets/arrow_right.png'
 import arrow_left from '../../../assets/arrow_left.png'
@@ -8,6 +8,19 @@ import cast_3 from '../../../assets/cast_3.png'
 import cast_4 from '../../../assets/cast_4.png'
 
 const Casts = () => {
+
+    const collectionRef = useRef();
+
+    const arrowLeft = () =>{
+        let collection = collectionRef.current
+        collection.scrollLeft -= 330
+    }
+
+    const arrowRight = () =>{
+        let collection = collectionRef.current
+        collection.scrollLeft += 330
+    }
+
   return (
     <div className="max-wrapper standard__spacing--top">
             <div className="max-wrapper__content featured-casts">
@@ -17,9 +30,9 @@ const Casts = () => {
                 </div>
                 <div className="featured-casts__divider"></div>
                 <div className="featured-casts__divider"></div>
-                <div className="featured-casts__collection">
-                    <div className="featured-casts__collection--arrow-left"><img src={arrow_left} alt="arrow_left"/></div>
-                    <div className="featured-casts__collection--arrow-right"><img src={arrow_right} alt="arrow_right"/></div>
+                <div className="featured-casts__collection" ref={collectionRef}>
+                    <div className="featured-casts__collection--arrow-left" onClick={arrowLeft}><img src={arrow_left} alt="arrow_left"/></div>
+                    <div className="featured-casts__collection--arrow-right" onClick={arrowRight}><img src={arrow_right} alt="arrow_right"/></div>
                     <div className="cast">
                         <div className="cast__img">
                             <img src={cast_1} alt="Cast"/>
