@@ -1,11 +1,48 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Signup.scss'
 import movixlogo from '../../assets/movix_logo.png';
 import Input from '../../components/Input/Input';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet';
+import { endpoint } from '../../utils/endpoints';
+import { toast } from 'react-toastify';
+
 
 const Signup = () => {
+
+  const navigate = useNavigate()
+
+  const [fullname, setFullname] = useState("")
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const submit = () =>{
+
+
+    fetch(`${endpoint}/signup`, {
+      method:'post',
+      headers:{
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({fullname, email, password})
+    })
+    .then(response => response.json())
+    .then(data => {
+      if(data.success){
+        navigate("/login")
+        return toast.success(data.success, {
+          position: toast.POSITION.TOP_RIGHT
+        });
+      }
+      return toast.error(data.error, {
+        position: toast.POSITION.TOP_RIGHT
+      });
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  }
+
   return (
     <div className="signup_scaffold">
       <Helmet>
@@ -19,15 +56,14 @@ const Signup = () => {
           <h2>Hi, Welcome</h2>
           <p>Please sign-up to start your experience</p>
         </div>
-
-        <Input type="text" />
+        <Input type="text" input={fullname} setInput={setFullname}/>
         <div className="signup__divider"></div>
-        <Input type="email" />
+        <Input type="email" input={email} setInput={setEmail} />
         <div className="signup__divider"></div>
-        <Input type="password" />
+        <Input type="password" input={password} setInput={setPassword} />
         <div className="signup__divider"></div>
         <div className="signup__divider"></div>
-        <div className="btn__auth">LOGIN</div>
+        <div className="btn__auth" onClick={submit}>Register</div>
         <div className="signup__divider"></div>
         <p className="signup__login">Already have an account? <Link to={'/login'}>Login</Link></p>
       </div>

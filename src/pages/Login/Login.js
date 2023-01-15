@@ -2,15 +2,19 @@ import React, { useState } from 'react'
 import './Login.scss'
 import movixlogo from '../../assets/movix_logo.png';
 import Input from '../../components/Input/Input';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from "react-helmet";
 import { endpoint } from '../../utils/endpoints';
 import { useSelector, useDispatch } from 'react-redux';
 import authSlice from '../../store/slices/authSlice'
+import { toast } from 'react-toastify';
+
 const Login = () => {
   const authState = useSelector((state) => state.auth)
   const dispatch = useDispatch()
   const { authLogin } = authSlice.actions
+
+  const navigate = useNavigate()
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -27,9 +31,25 @@ const Login = () => {
     })
     .then(response => response.json())
     .then(data => {
+      if(data.error){
+        return toast.error(data.error, {
+          position: toast.POSITION.TOP_RIGHT
+        });
+      }
+     
       dispatch(authLogin(data))
+      navigate("/")
+      return toast.success(data.success, {
+        position: toast.POSITION.TOP_RIGHT
+      });
+      
     })
-    .catch(error => console.log(error))
+    .catch(error => {
+      toast.error(error, {
+        position: toast.POSITION.TOP_RIGHT
+      });
+      console.log(error)
+    })
   }
 
   return (
