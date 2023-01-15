@@ -4,11 +4,33 @@ import movixlogo from '../../assets/movix_logo.png';
 import Input from '../../components/Input/Input';
 import { Link } from 'react-router-dom';
 import { Helmet } from "react-helmet";
-
+import { endpoint } from '../../utils/endpoints';
+import { useSelector, useDispatch } from 'react-redux';
+import authSlice from '../../store/slices/authSlice'
 const Login = () => {
+  const authState = useSelector((state) => state.auth)
+  const dispatch = useDispatch()
+  const { authLogin } = authSlice.actions
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  console.log(authState)
+
+  const login = () =>{
+
+    fetch(`${endpoint}/login`, {
+      method:'post',
+      headers:{
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({email, password})
+    })
+    .then(response => response.json())
+    .then(data => {
+      dispatch(authLogin(data))
+    })
+    .catch(error => console.log(error))
+  }
 
   return (
     <div className="login_scaffold">
@@ -29,7 +51,7 @@ const Login = () => {
         <Input type="password" input={password} setInput={setPassword} />
         <div className="login__divider"></div>
         <div className="login__divider"></div>
-        <div className="btn__auth">LOGIN</div>
+        <div className="btn__auth" onClick={login}>LOGIN</div>
         <div className="login__divider"></div>
         <p className="login__register">Don't have an account? <Link to={'/signup'}>Register</Link></p>
       </div>
