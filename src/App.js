@@ -5,13 +5,14 @@ import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import AuthHoc from './hoc/AuthHoc';
 function App() {
   return (
     <Router>
       <div className="app">
         <ToastContainer />
         <Routes>
-          <Route exact path="/" element={<Home />}/>
+          <Route exact path="/" element={<AuthHoc><Home /></AuthHoc>}/>
           <Route exact path="/login" element={ <Login/> }/>
           <Route exact path="/signup" element={ <Signup/> }/>
         </Routes>

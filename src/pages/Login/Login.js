@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './Login.scss'
 import movixlogo from '../../assets/movix_logo.png';
 import Input from '../../components/Input/Input';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, Navigate } from 'react-router-dom';
 import { Helmet } from "react-helmet";
 import { endpoint } from '../../utils/endpoints';
 import { useSelector, useDispatch } from 'react-redux';
