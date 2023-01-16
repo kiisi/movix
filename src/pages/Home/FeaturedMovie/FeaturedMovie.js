@@ -75,7 +75,7 @@ const FeaturedMovie = () => {
 
                     {fetchedMovies}
 
-                    {loading && <div className="featured-movie__collection--spinner"><Spinner /></div>}
+                    <div className="featured-movie__collection--spinner">{loading ? <Spinner /> : <span onClick={seeMoreMovies}>more...</span>}</div>
 
                 </div>
             </div>
