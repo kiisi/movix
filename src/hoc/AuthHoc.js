@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { endpoint } from '../utils/endpoints'
 import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import authSlice  from '../store/slices/authSlice'
 import './AuthHoc.scss'
 
 const AuthHoc = (props) => {
     const [loading, setLoading] = useState(false)
     const [auth, setAuth] = useState(null)
     const authState = useSelector((state) => state.auth)
+    const dispatch = useDispatch()
+    const { authUpdate } = authSlice.actions
     const navigate = useNavigate()
 
     const _tk = authState.token || localStorage.getItem("_tk")
-    console.log(_tk)
 
     useEffect(() => {
         setLoading(true)
@@ -23,8 +25,8 @@ const AuthHoc = (props) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.success) {
+                    dispatch(authUpdate(data))
                     setAuth(true)
                 } else {
                     setAuth(false)

@@ -10,7 +10,6 @@ import authSlice from '../../store/slices/authSlice'
 import { toast } from 'react-toastify';
 
 const Login = () => {
-  const authState = useSelector((state) => state.auth)
   const dispatch = useDispatch()
   const { authLogin } = authSlice.actions
 
@@ -19,8 +18,6 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-
-  console.log(authState)
 
   const login = () =>{
     setLoading(true)
