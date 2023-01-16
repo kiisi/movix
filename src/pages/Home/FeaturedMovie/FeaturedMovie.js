@@ -53,6 +53,7 @@ const FeaturedMovie = () => {
                 arrow_right.classList.remove("hide")
             }
         }
+        
         setLoading(true)
         fetch(`https://api.themoviedb.org/3/movie/popular?api_key=11d9d6e07330833dd9c9a8c9f0a0c184&language=en-US&page=${page}`, {
             method: 'get'
