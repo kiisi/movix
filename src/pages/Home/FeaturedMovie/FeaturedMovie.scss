@@ -22,7 +22,7 @@
         &--spinner{
             display:grid;
             place-items:center;
-            margin-top:-18rem;
+            margin-top:-16.5rem;
 
             span{
                 color:var(--primary-color);
@@ -52,14 +52,23 @@
             z-index: 99;
             display:grid;
             place-items: center;
+            transform: translateY(-50%);
         }
         &--arrow-left{
             left:0;
             top:50%;
+
+            &.hide{
+                display:none;
+            }
         }
         &--arrow-right{
             right:0;
             top:50%;
+
+            &.hide{
+                display:none;
+            }
         }
     }
 }
