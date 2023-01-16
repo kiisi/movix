@@ -35,7 +35,7 @@ const AuthHoc = (props) => {
             .then(() => setLoading(false))
             .catch(error => console.log(error))
 
-    }, [_tk])
+    },[_tk])
 
     let loader = <div className="scaffold__loading">
         <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
