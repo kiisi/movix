@@ -23,6 +23,19 @@
             display:grid;
             place-items:center;
             margin-top:-18rem;
+
+            span{
+                color:var(--primary-color);
+                font-size: 1.8rem;
+                display:flex;
+                align-items:center;
+                cursor:pointer;
+                padding-right:1rem;
+
+                @media screen and (max-width:768px){
+                    font-size:1.6rem;
+                }
+            }
         }
 
         &::-webkit-scrollbar{
