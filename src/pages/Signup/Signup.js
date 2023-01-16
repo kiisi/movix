@@ -15,10 +15,11 @@ const Signup = () => {
   const [fullname, setFullname] = useState("")
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const submit = () =>{
 
-
+    setLoading(true)
     fetch(`${endpoint}/signup`, {
       method:'post',
       headers:{
@@ -38,6 +39,7 @@ const Signup = () => {
         position: toast.POSITION.TOP_RIGHT
       });
     })
+    .then(()=> setLoading(false))
     .catch(error => {
       console.log(error)
     })
@@ -63,7 +65,12 @@ const Signup = () => {
         <Input type="password" input={password} setInput={setPassword} />
         <div className="signup__divider"></div>
         <div className="signup__divider"></div>
-        <div className="btn__auth" onClick={submit}>Register</div>
+        {
+          loading ?
+          <div className="btn__auth loading">Register</div>
+          :
+          <div className="btn__auth" onClick={submit}>Register</div>
+        }
         <div className="signup__divider"></div>
         <p className="signup__login">Already have an account? <Link to={'/login'}>Login</Link></p>
       </div>

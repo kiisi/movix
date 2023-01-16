@@ -18,10 +18,12 @@ const Login = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+
   console.log(authState)
 
   const login = () =>{
-
+    setLoading(true)
     fetch(`${endpoint}/login`, {
       method:'post',
       headers:{
@@ -44,6 +46,7 @@ const Login = () => {
       });
       
     })
+    .then(()=> setLoading(setLoading(false)))
     .catch(error => {
       toast.error(error, {
         position: toast.POSITION.TOP_RIGHT
@@ -71,7 +74,12 @@ const Login = () => {
         <Input type="password" input={password} setInput={setPassword} />
         <div className="login__divider"></div>
         <div className="login__divider"></div>
+        { loading ?
+        <div className="btn__auth loading">LOGIN</div>
+        :
         <div className="btn__auth" onClick={login}>LOGIN</div>
+        }
+        
         <div className="login__divider"></div>
         <p className="login__register">Don't have an account? <Link to={'/signup'}>Register</Link></p>
       </div>
