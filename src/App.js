@@ -7,6 +7,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AuthHoc from './hoc/AuthHoc';
 function App() {
+
   return (
     <Router>
       <div className="app">

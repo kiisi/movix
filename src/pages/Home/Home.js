@@ -5,6 +5,7 @@ import NewArrival from './NewArrival/NewArrival'
 import Casts from './Casts/Casts'
 import Footer from '../../layout/Footer/Footer'
 import ExclusiveVideos from './ExclusiveVideos/ExclusiveVideos'
+// import AuthHoc from '../../hoc/AuthHoc'
 
 const Home = () => {
   return (
@@ -18,5 +19,6 @@ const Home = () => {
     </div>
   )
 }
+
 
 export default Home
