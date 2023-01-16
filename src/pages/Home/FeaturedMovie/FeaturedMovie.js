@@ -44,7 +44,7 @@ const FeaturedMovie = () => {
     }, [page])
 
     const seeMoreMovies = () =>{
-        if(page <= 100){
+        if(page <= 500){
             setPage((e) => e + 1)
         }
     }
