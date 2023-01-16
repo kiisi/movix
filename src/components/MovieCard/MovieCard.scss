@@ -16,6 +16,13 @@
         height:370px;
         position:relative;
         overflow:hidden;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+
+        img{
+            object-fit: cover;
+
+        }
 
         &--favorite{
             position: absolute;
