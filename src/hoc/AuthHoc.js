@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { endpoint } from '../utils/endpoints'
 import { redirect } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import './AuthHoc.css'
 
 const AuthHoc = (props) => {
     const [loading, setLoading] = useState(false)
@@ -12,7 +13,7 @@ const AuthHoc = (props) => {
     const _tk = authState.token || localStorage.getItem("_tk")
     console.log(_tk)
 
-    useEffect(()=>{
+    useEffect(() => {
         setLoading(true)
         fetch(endpoint, {
             method: 'get',
@@ -25,24 +26,29 @@ const AuthHoc = (props) => {
                 console.log(data)
                 if (data.success) {
                     setAuth(true)
-                }else{
+                } else {
                     setAuth(false)
                 }
             })
-            .then(()=> setLoading(false))
+            .then(() => setLoading(false))
             .catch(error => console.log(error))
 
-        },[_tk])
-    
+    }, [_tk])
+
+    let loader = <div className="scaffold__loading">
+        <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+        </div>
+    </div>
+
     return <>
         {
             loading ? 
-            <h1>Loading...</h1>
+            loader
             :
-            auth ? 
-            props.children
-            :
-            auth == null ? <h1>...</h1> : <h1>Not allowed</h1>
+                auth ?
+                    props.children
+                    :
+                    auth == null ? loader : <h1>Not allowed</h1>
 
         }
     </>
