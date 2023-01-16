@@ -45,8 +45,8 @@ const FeaturedMovie = () => {
     console.log(movies)
     console.log(loading)
 
-    const fetchedMovies = movies.map((movie, index)=>(
-        <MovieCard favorite_img={favorite} movie_img={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} ratings_imdb={imdb} ratings_apple={apple} title={movie.title} rating_a={"78.0"} rating_b={"94"} genre={"Animation, Drama, History"} />
+    const fetchedMovies = movies.map((movie)=>(
+        <MovieCard key={movie.id} favorite_img={favorite} movie_img={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} ratings_imdb={imdb} ratings_apple={apple} title={movie.title} rating_a={"78.0"} rating_b={"94"} genre={"Animation, Drama, History"} />
     ))
 
 
