@@ -16,6 +16,7 @@ import Spinner from '../../../components/Spinner/Spinner';
 const FeaturedMovie = () => {
 
     const [loading, setLoading] = useState(false)
+    const [page, setPage] = useState(1)
     const [movies, setMovies] = useState([])
     const collectionRef = useRef();
 
@@ -31,22 +32,26 @@ const FeaturedMovie = () => {
 
     useEffect(() => {
         setLoading(true)
-        fetch("https://api.themoviedb.org/3/movie/popular?api_key=11d9d6e07330833dd9c9a8c9f0a0c184&language=en-US&page=1", {
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=11d9d6e07330833dd9c9a8c9f0a0c184&language=en-US&page=${page}`, {
             method: 'get'
         })
             .then(res => res.json())
             .then(data => {
-                setMovies([...data.results])
+                setMovies((e) => [...e, ...data.results])
             })
             .then(() => setLoading(false))
             .catch(error => console.log(error))
-    }, [])
+    }, [page])
 
-    console.log(movies)
-    console.log(loading)
+    const seeMoreMovies = () =>{
+        if(page <= 100){
+            setPage((e) => e + 1)
+        }
+    }
 
-    const fetchedMovies = movies.map((movie)=>(
-        <MovieCard key={movie.id} favorite_img={favorite} movie_img={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} ratings_imdb={imdb} ratings_apple={apple} title={movie.title} rating_a={"78.0"} rating_b={"94"} genre={"Animation, Drama, History"} />
+
+    const fetchedMovies = movies.map((movie, index)=>(
+        <MovieCard key={index} favorite_img={favorite} movie_img={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} ratings_imdb={imdb} ratings_apple={apple} title={movie.title} rating_a={"78.0"} rating_b={"94"} genre={"Animation, Drama, History"} />
     ))
 
 
@@ -56,7 +61,7 @@ const FeaturedMovie = () => {
             <div className="max-wrapper__content featured-movie">
                 <div className="featured-movie__header">
                     <h1>Featured Movie</h1>
-                    <span className="featured-movie__header--see-more">See more <span className="material-icons">chevron_right</span></span>
+                    <span className="featured-movie__header--see-more" onClick={seeMoreMovies}>See more <span className="material-icons">chevron_right</span></span>
                 </div>
                 <div className="featured-movie__divider"></div>
                 <div className="featured-movie__divider"></div>
