@@ -1,11 +1,11 @@
 import React from 'react'
 import './MovieCard.scss'
-const MovieCard = ({favorite_img, movie_img, ratings_imdb, ratings_apple, title, rating_a, rating_b}) => {
+const MovieCard = ({favorite_img, movie_img, ratings_imdb, ratings_apple, title, rating_a, rating_b, tv_series}) => {
     return (
         <div className="movie-card">
             <div className="movie-card__img">
                 <img src={favorite_img} alt="favorite" className="movie-card__img--favorite" />
-                <div className="movie-card__img--series">TV SERIES</div>
+                {tv_series && <div className="movie-card__img--series">TV SERIES</div>}
                 <img src={movie_img} alt="movie card img" />
             </div>
             <div className="movie-card__divider"></div>

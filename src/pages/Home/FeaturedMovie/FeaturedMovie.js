@@ -34,7 +34,7 @@ const FeaturedMovie = () => {
         collection.onscroll = (e) => {
             const rightScroll = collection.scrollLeft + collection.offsetWidth
 
-            if(rightScroll + 200 >= collection.scrollWidth){
+            if(rightScroll + 250 >= collection.scrollWidth){
                 setLoading(true)
             }else{
                 setLoading(false)
@@ -56,13 +56,13 @@ const FeaturedMovie = () => {
                 <div className="featured-movie__collection" ref={collectionRef}>
                     <div className="featured-movie__collection--arrow-left" onClick={arrowLeft}><img src={arrow_left} alt="arrow_left" /></div>
                     <div className="featured-movie__collection--arrow-right" onClick={arrowRight}><img src={arrow_right} alt="arrow_right" /></div>
-                    <MovieCard favorite_img={favorite} movie_img={featuredmovie_1} ratings_imdb={imdb} ratings_apple={apple} title={"Stranger Things"} rating_a={"80.0"} rating_b={"97"} genre={"Action, Adventure, Horror"} />
+                    <MovieCard favorite_img={favorite} movie_img={featuredmovie_1} ratings_imdb={imdb} ratings_apple={apple} title={"Stranger Things"} rating_a={"80.0"} rating_b={"97"} genre={"Action, Adventure, Horror"} tv_series={"TV SERIES"}/>
                     <MovieCard favorite_img={favorite} movie_img={featuredmovie_2} ratings_imdb={imdb} ratings_apple={apple} title={"Batman Begins"} rating_a={"82.0"} rating_b={"70"} genre={"Action, Adventure"} />
                     <MovieCard favorite_img={favorite} movie_img={featuredmovie_3} ratings_imdb={imdb} ratings_apple={apple} title={"Spider-Man : Into The Spider Verse"} rating_a={"84.0"} rating_b={"87"} genre={"Animation, Action, Adventure"} />
                     <MovieCard favorite_img={favorite} movie_img={featuredmovie_4} ratings_imdb={imdb} ratings_apple={apple} title={"Dunkirk"} rating_a={"78.0"} rating_b={"94"} genre={"Animation, Drama, History"} />
 
                     
-                    {loading && <Spinner/> }
+                    {loading && <div className="featured-movie__collection--spinner"><Spinner/></div> }
 
                 </div>
             </div>

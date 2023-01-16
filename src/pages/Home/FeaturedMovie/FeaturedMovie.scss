@@ -19,6 +19,11 @@
         display:flex;
         scroll-behavior: smooth;
 
+        &--spinner{
+            display:grid;
+            place-items:center;
+        }
+
         &::-webkit-scrollbar{
             display:none;
         }
