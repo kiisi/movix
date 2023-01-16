@@ -2,9 +2,10 @@
     font-family:var(--secondary-font);
     width:250px;
 
-    &:not(:first-child){
-        margin-left: 8rem;
+    &:not(:last-child){
+        margin-right: 6rem;
     }
+    
 
     &__divider{
         height:1rem;
