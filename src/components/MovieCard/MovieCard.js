@@ -6,7 +6,7 @@ const MovieCard = ({favorite_img, movie_img, ratings_imdb, ratings_apple, title,
             <div className="movie-card__img">
                 <img src={favorite_img} alt="favorite" className="movie-card__img--favorite" />
                 {tv_series && <div className="movie-card__img--series">TV SERIES</div>}
-                <img src={movie_img} alt="movie card img" />
+                <img src={movie_img} className="movie-card__img--img" alt="movie card img" />
             </div>
             <div className="movie-card__divider"></div>
             <div className="movie-card__sub">USA, 2016 - Current</div>

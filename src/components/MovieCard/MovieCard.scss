@@ -12,16 +12,15 @@
     }
 
     &__img{
-        width:250px;
-        height:370px;
         position:relative;
-        overflow:hidden;
         border-top-left-radius: 1rem;
         border-top-right-radius: 1rem;
+        overflow: hidden;
 
-        img{
+        &--img{
             object-fit: cover;
-
+            width:250px;
+            height:370px;
         }
 
         &--favorite{
