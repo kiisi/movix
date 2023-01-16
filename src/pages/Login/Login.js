@@ -5,7 +5,7 @@ import Input from '../../components/Input/Input';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from "react-helmet";
 import { endpoint } from '../../utils/endpoints';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import authSlice from '../../store/slices/authSlice'
 import { toast } from 'react-toastify';
 
