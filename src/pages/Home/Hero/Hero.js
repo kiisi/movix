@@ -6,6 +6,7 @@ import apple from '../../../assets/apple.png';
 import play from '../../../assets/play.png';
 
 const Hero = () => {
+
   return (
     <div className="max-wrapper hero-wrapper">
       <div className="max-wrapper__content">

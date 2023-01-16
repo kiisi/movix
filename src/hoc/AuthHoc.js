@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { endpoint } from '../utils/endpoints'
-import { redirect } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import './AuthHoc.css'
+import './AuthHoc.scss'
 
 const AuthHoc = (props) => {
     const [loading, setLoading] = useState(false)
     const [auth, setAuth] = useState(null)
     const authState = useSelector((state) => state.auth)
-    console.log(authState.token)
+    const navigate = useNavigate()
 
     const _tk = authState.token || localStorage.getItem("_tk")
     console.log(_tk)
@@ -36,7 +36,7 @@ const AuthHoc = (props) => {
     }, [_tk])
 
     let loader = <div className="scaffold__loading">
-        <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+        <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
         </div>
     </div>
 
@@ -48,7 +48,7 @@ const AuthHoc = (props) => {
                 auth ?
                     props.children
                     :
-                    auth == null ? loader : <h1>Not allowed</h1>
+                    auth == null ? loader : <div className="scaffold_re-login"><div><h1>Access denied</h1><p onClick={() => navigate('/login')}>Login</p></div></div>
 
         }
     </>

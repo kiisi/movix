@@ -3,6 +3,20 @@
     place-items:center;
     min-height:100vh;
 }
+.scaffold_re-login{
+    display:grid;
+    place-items:center;
+    min-height:100vh;
+    text-align:center;
+    padding:1rem;
+
+    p{
+        color: var(--primary-color);
+        padding-top:1rem;
+        font-size:1.8rem;
+        cursor:pointer;
+    }
+}
 
 .lds-spinner {
     color: official;

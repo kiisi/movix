@@ -1,8 +1,11 @@
 import React from 'react'
 import './Navbar.scss'
 import tv from '../../assets/tv.png'
+import { useSelector } from 'react-redux'
 
 const Navbar = () => {
+  const fullname = useSelector((state) => state.auth).user.fullname
+
   return (
     <div className="nav">
         <div className="nav__logo">
@@ -14,7 +17,7 @@ const Navbar = () => {
             <span className="material-icons">search</span>
         </div>
         <div className="nav__profile">
-            <div className="nav__profile--name">Hi, $Fullname</div>
+            <div className="nav__profile--name">Hi, {fullname}</div>
             <div className="nav__profile--menu">
               <div className="nav__profile--menu__lines"></div>
             </div>
