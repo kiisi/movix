@@ -2,8 +2,8 @@
     font-family:var(--secondary-font);
     width:250px;
 
-    &:not(:last-child){
-        margin-right: 8rem;
+    &:not(:first-child){
+        margin-left: 8rem;
     }
 
     &__divider{
