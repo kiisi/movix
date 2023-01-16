@@ -1,3 +1,5 @@
+@import '../../../utils/styles.scss';
+
 .exclusive-videos{
     font-family:var(--secondary-font);
 
@@ -9,17 +11,9 @@
         display:flex;
         justify-content: space-between;
 
-        h1{
-            font-size:3.6rem;
-            font-weight: 700;
-        }
+        @include box__headers
 
-        &--see-more{
-            color:var(--primary-color);
-            font-size: 1.8rem;
-            display:flex;
-            align-items:center;
-        }
+        
     }
     &__collection{
         display:flex;
