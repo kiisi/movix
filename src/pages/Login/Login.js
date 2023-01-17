@@ -29,14 +29,6 @@ const Login = () => {
       body: JSON.stringify({email, password})
     })
     .then(response => {
-      console.log(response)
-      if(!response.ok){
-        toast.error("Something went wrong", {
-          position: toast.POSITION.TOP_RIGHT
-        });
-        throw new Error('Something went wrong');
-      }
-
       return response.json()
     })
     .then(data => {

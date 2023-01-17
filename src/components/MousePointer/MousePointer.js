@@ -7,8 +7,8 @@ const MousePointer = () => {
     useEffect(()=>{
         const mousepointer = mousepointerRef.current
         window.addEventListener("mousemove", (event)=>{
-            let x = event.clientX - 8
-            let y = event.clientY - 8
+            let x = event.clientX 
+            let y = event.clientY 
 
             mousepointer.style.left = x + 'px'
             mousepointer.style.top = y + 'px'
