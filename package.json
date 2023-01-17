@@ -1,5 +1,5 @@
 {
-  "name": "react_project",
+  "name": "movix",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -15,15 +15,17 @@
     "react-router-dom": "^6.6.2",
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",
+    "react-snap": "^1.23.0",
     "react-toastify": "^9.1.1",
     "sass": "^1.57.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "rimraf ./build && react-scripts build && rimraf ./build/**/*.map",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postbuild": "react-snap"
   },
   "eslintConfig": {
     "extends": [
