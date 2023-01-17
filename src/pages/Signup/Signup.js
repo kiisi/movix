@@ -26,7 +26,6 @@ const Signup = () => {
     // xhr.timeout = 2000
 
     xhr.onload = function () {
-      console.log("Loading...")
       setLoading(false)
       const data = JSON.parse(xhr.response)
       if (data.error) {
@@ -41,14 +40,12 @@ const Signup = () => {
       }
     }
     xhr.onerror = function () {
-      console.log("Error..")
       setLoading(false)
       toast.error("An error occurred!", {
         position: toast.POSITION.TOP_RIGHT
       });
     }
     xhr.ontimeout = function () {
-      console.log("Timeout...")
       setLoading(false)
       toast.error("An error occurred!", {
         position: toast.POSITION.TOP_RIGHT
