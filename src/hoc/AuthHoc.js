@@ -57,17 +57,4 @@ const AuthHoc = (props) => {
 
 }
 
-// return <>
-//         {
-//             loading ? 
-//             loader
-//             :
-//                 auth ?
-//                     props.children
-//                     :
-//                     auth == null ? loader : <div className="scaffold_re-login"><div><h1>Access denied</h1><p onClick={() => navigate('/login')}>Login</p></div></div>
-
-//         }
-//     </>
-
 export default AuthHoc
