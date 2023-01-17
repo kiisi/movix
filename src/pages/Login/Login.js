@@ -19,33 +19,42 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const login = () =>{
+  const login = () => {
+
     setLoading(true)
-    fetch(`${endpoint}/login`, {
-      method:'post',
-      headers:{
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({email, password})
-    })
-    .then(response => response.json())
-    .then(data => {
-      if(data.error){
-        return toast.error(data.error, {
+    const xhr = new XMLHttpRequest()
+    xhr.open('post', `${endpoint}/login`)
+    xhr.setRequestHeader('Content-Type', 'application/json')
+    // xhr.timeout = 2000
+
+    xhr.onload = function () {
+      setLoading(false)
+      const data = JSON.parse(xhr.response)
+      console.log(data)
+      if (data.error) {
+        toast.error(data.error, {
           position: toast.POSITION.TOP_RIGHT
         });
+      } else {
+        dispatch(authLogin(data))
+        navigate('/login')
       }
-     
-      dispatch(authLogin(data))
-      return navigate('/') 
-    })
-    .then(()=> setLoading(false))
-    .catch(error => {
-      toast.error(error, {
+    }
+    xhr.onerror = function () {
+      setLoading(false)
+      toast.error("An error occurred!", {
         position: toast.POSITION.TOP_RIGHT
       });
-      return console.log(error)
-    })
+    }
+    xhr.ontimeout = function () {
+      setLoading(false)
+      toast.error("An error occurred!", {
+        position: toast.POSITION.TOP_RIGHT
+      });
+    }
+
+    xhr.send(JSON.stringify({ email, password }))
+    
   }
 
   return (
@@ -67,12 +76,12 @@ const Login = () => {
         <Input type="password" input={password} setInput={setPassword} />
         <div className="login__divider"></div>
         <div className="login__divider"></div>
-        { loading ?
-        <div className="btn__auth loading">LOGIN</div>
-        :
-        <div className="btn__auth" onClick={login}>LOGIN</div>
+        {loading ?
+          <div className="btn__auth loading">LOGIN</div>
+          :
+          <div className="btn__auth" onClick={login}>LOGIN</div>
         }
-        
+
         <div className="login__divider"></div>
         <p className="login__register">Don't have an account? <Link to={'/signup'}>Register</Link></p>
       </div>
