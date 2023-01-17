@@ -57,10 +57,18 @@
         &--arrow-left{
             left:0;
             top:50%;
+            
+            &.hide{
+                display:none;
+            }
         }
         &--arrow-right{
             right:0;
             top:50%;
+
+            &.hide{
+                display:none;
+            }
         }
 
         .cast{

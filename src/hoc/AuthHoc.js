@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import authSlice  from '../store/slices/authSlice'
 import './AuthHoc.scss'
+import { toast } from 'react-toastify';
 
 const AuthHoc = (props) => {
     const [auth, setAuth] = useState(null)
@@ -14,9 +15,7 @@ const AuthHoc = (props) => {
 
     const _tk = localStorage.getItem("_tk") || authState.token
 
-
     useEffect(() => {
-        console.log(authState.token)
         if(!_tk){
             return navigate('/login')
         }
@@ -28,9 +27,9 @@ const AuthHoc = (props) => {
         })
             .then(res => {
                 console.log(res)
-                if(!res.ok){
-                    return navigate('/login')
-                }
+                // if(!res.ok){
+                //     return navigate('/login')
+                // }
                 return res.json()
             })
             .then(data => {
@@ -38,19 +37,25 @@ const AuthHoc = (props) => {
                 if (data.success) {
                     dispatch(authUpdate(data))
                     setAuth(true)
-                } else {
-                    navigate('/login')
-                    setAuth(false)
+                    return toast.success(data.success, {
+                        position: toast.POSITION.TOP_RIGHT
+                    });
                 }
+                setAuth(false)
+                navigate('/login')
+                return toast.error(data.error, {
+                    position: toast.POSITION.TOP_RIGHT
+                });
             })
             .catch(error => console.log(error))
 
-    },[_tk, authState.token])
+    },[_tk])
 
     let loader = <div className="scaffold__loading">
         <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
         </div>
     </div>
+    console.log(auth)
 
 
     return <>{ auth ? props.children : loader}</>

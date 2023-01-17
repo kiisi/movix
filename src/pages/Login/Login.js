@@ -28,7 +28,17 @@ const Login = () => {
       },
       body: JSON.stringify({email, password})
     })
-    .then(response => response.json())
+    .then(response => {
+      console.log(response)
+      if(!response.ok){
+        toast.error("Something went wrong", {
+          position: toast.POSITION.TOP_RIGHT
+        });
+        throw new Error('Something went wrong');
+      }
+
+      return response.json()
+    })
     .then(data => {
       if(data.error){
         return toast.error(data.error, {
@@ -37,18 +47,14 @@ const Login = () => {
       }
      
       dispatch(authLogin(data))
-      navigate("/")
-      return toast.success(data.success, {
-        position: toast.POSITION.TOP_RIGHT
-      });
-      
+      return navigate('/') 
     })
-    .then(()=> setLoading(setLoading(false)))
+    .then(()=> setLoading(false))
     .catch(error => {
       toast.error(error, {
         position: toast.POSITION.TOP_RIGHT
       });
-      console.log(error)
+      return console.log(error)
     })
   }
 
