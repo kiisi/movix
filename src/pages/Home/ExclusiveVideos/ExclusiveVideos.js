@@ -3,7 +3,7 @@ import arrow_left from '../../../assets/arrow_left.png'
 import arrow_right from '../../../assets/arrow_right.png'
 import './ExclusiveVideos.scss';
 import Spinner from '../../../components/Spinner/Spinner';
-import play from '../../../assets/play.png'
+import play from '../../../assets/play_btn.png'
 
 const ExclusiveVideos = () => {
 
