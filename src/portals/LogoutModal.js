@@ -2,7 +2,6 @@ import {Component} from 'react';
 import ReactDOM from 'react-dom'
 
 const modal = document.getElementById('modal')
-const modalBackdrop = document.getElementById('modal__backdrop')
 
 class LogoutModal extends Component{
     constructor(props){

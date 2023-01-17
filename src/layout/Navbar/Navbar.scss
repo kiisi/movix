@@ -90,13 +90,16 @@
 
 .modal__logout{
     width:100%;
+    max-width:768px;
+    margin:0 auto;
     border-top-left-radius: 2.5rem;
     border-top-right-radius: 2.5rem;
     background: rgba(0,0,0,.5);
     padding:2rem;
     position:fixed;
     bottom:-9.1rem;
-    left:0;
+    left:50%;
+    transform:translateX(-50%);
     z-index:var(--z-index-high);
     backdrop-filter: blur(1px);
     transition: 250ms ease-in-out;
