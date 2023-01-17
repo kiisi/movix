@@ -20,29 +20,40 @@ const Signup = () => {
   const submit = () =>{
 
     setLoading(true)
-    fetch(`${endpoint}/signup`, {
-      method:'post',
-      headers:{
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({fullname, email, password})
-    })
-    .then(response => response.json())
-    .then(data => {
-      if(data.success){
-        navigate("/login")
-        return toast.success(data.success, {
+    const xhr = new XMLHttpRequest()
+    xhr.open('post', `${endpoint}/signup`)
+    xhr.setRequestHeader('Content-Type', 'application/json')
+    // xhr.timeout = 2000
+
+    xhr.onload = function () {
+      setLoading(false)
+      const data = JSON.parse(xhr.response)
+      if (data.error) {
+        toast.error(data.error, {
           position: toast.POSITION.TOP_RIGHT
         });
+      } else {
+        toast.error(data.error, {
+          position: toast.POSITION.TOP_RIGHT
+        });
+        navigate('/login')
       }
-      return toast.error(data.error, {
+    }
+    xhr.onerror = function () {
+      setLoading(false)
+      toast.error("An error occurred!", {
         position: toast.POSITION.TOP_RIGHT
       });
-    })
-    .then(()=> setLoading(false))
-    .catch(error => {
-      console.log(error)
-    })
+    }
+    xhr.ontimeout = function () {
+      setLoading(false)
+      toast.error("An error occurred!", {
+        position: toast.POSITION.TOP_RIGHT
+      });
+    }
+
+    xhr.send(JSON.stringify({fullname, email, password}))
+
   }
 
   return (
