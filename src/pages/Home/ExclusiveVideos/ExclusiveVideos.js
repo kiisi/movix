@@ -3,7 +3,6 @@ import arrow_left from '../../../assets/arrow_left.png'
 import arrow_right from '../../../assets/arrow_right.png'
 import './ExclusiveVideos.scss';
 import Spinner from '../../../components/Spinner/Spinner';
-import play from '../../../assets/play.png'
 
 const ExclusiveVideos = () => {
 
@@ -69,7 +68,7 @@ const ExclusiveVideos = () => {
         <div className="exclusive" key={index}>
             <div className="exclusive__img">
                 <img src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} className="exclusive__img--img" alt={movie.title} />
-                <img src={play} className="exclusive__img--play" alt="play"/>
+                <span class="material-icons exclusive__img--play">play_circle</span>
             </div>
             <h2 className="exclusive__caption">{movie.title}</h2>
         </div>
