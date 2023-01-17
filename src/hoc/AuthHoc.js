@@ -19,7 +19,6 @@ const AuthHoc = (props) => {
         if (!_tk) {
             return navigate('/login')
         }
-        console.log("Requesting...")
 
         const xhr = new XMLHttpRequest()
         xhr.open('get', endpoint, true)
