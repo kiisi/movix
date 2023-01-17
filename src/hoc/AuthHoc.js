@@ -21,7 +21,7 @@ const AuthHoc = (props) => {
         }
 
         const xhr = new XMLHttpRequest()
-        xhr.open('get', endpoint, true)
+        xhr.open('get', endpoint)
         xhr.setRequestHeader("Authorization", "Bearer " + _tk)
         // xhr.timeout = 2000
 
