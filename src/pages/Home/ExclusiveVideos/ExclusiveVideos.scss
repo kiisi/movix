@@ -88,14 +88,11 @@
                     object-fit: cover;
                 }
                 &--play{
-                    font-size:5rem;
                     cursor:pointer;
                     position:absolute;
                     top:50%;
                     left:50%;
                     transform:translate(-50%, -50%);
-                    display:grid;
-                    place-items:center;
                 }
             }
             &__caption{
