@@ -1,0 +1,12 @@
+.mouse-pointer{
+    width:2rem;
+    height:2rem;
+    position:fixed;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    outline: 2px solid rgba(255, 255, 255, 0.52);
+    border: 2px solid rgba(#BE123C, 1);
+}

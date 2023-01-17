@@ -35,17 +35,16 @@ const AuthHoc = (props) => {
             .then(data => {
                 console.log(data)
                 if (data.success) {
-                    dispatch(authUpdate(data))
+                    console.log(data.success)
                     setAuth(true)
-                    return toast.success(data.success, {
+                    return dispatch(authUpdate(data))
+                }else{
+                    setAuth(false)
+                    navigate('/login')
+                    return toast.error(data.error, {
                         position: toast.POSITION.TOP_RIGHT
                     });
-                }
-                setAuth(false)
-                navigate('/login')
-                return toast.error(data.error, {
-                    position: toast.POSITION.TOP_RIGHT
-                });
+                }    
             })
             .catch(error => console.log(error))
 
