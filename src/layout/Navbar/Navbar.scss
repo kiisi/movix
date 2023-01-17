@@ -87,3 +87,38 @@
         }
     }
 }
+
+.modal__logout{
+    width:100%;
+    border-top-left-radius: 2.5rem;
+    border-top-right-radius: 2.5rem;
+    background: rgba(0,0,0,.5);
+    padding:2rem;
+    position:fixed;
+    bottom:-9.1rem;
+    left:0;
+    z-index:var(--z-index-high);
+    backdrop-filter: blur(1px);
+    transition: 250ms ease-in-out;
+
+    &.active{
+        bottom:0;
+    }
+
+    & > div {
+        background: var(--primary-color);
+    }
+}
+.modal__backdrop{
+    height:100%;
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    display:none;
+    z-index:var(--z-index-mid);
+
+    &.active{
+        display:block;
+    }
+}

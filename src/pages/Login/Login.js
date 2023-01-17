@@ -28,9 +28,7 @@ const Login = () => {
       },
       body: JSON.stringify({email, password})
     })
-    .then(response => {
-      return response.json()
-    })
+    .then(response => response.json())
     .then(data => {
       if(data.error){
         return toast.error(data.error, {

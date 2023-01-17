@@ -9,5 +9,5 @@
     -webkit-backdrop-filter: blur(1px);
     outline: 2px solid rgba(255, 255, 255, 0.52);
     border: 2px solid rgba(#BE123C, 1);
-    z-index:99999999;
+    z-index:var(--z-index-highest);
 }

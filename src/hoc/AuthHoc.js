@@ -26,16 +26,10 @@ const AuthHoc = (props) => {
             }
         })
             .then(res => {
-                console.log(res)
-                // if(!res.ok){
-                //     return navigate('/login')
-                // }
                 return res.json()
             })
             .then(data => {
-                console.log(data)
                 if (data.success) {
-                    console.log(data.success)
                     setAuth(true)
                     return dispatch(authUpdate(data))
                 }else{
@@ -54,7 +48,6 @@ const AuthHoc = (props) => {
         <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
         </div>
     </div>
-    console.log(auth)
 
 
     return <>{ auth ? props.children : loader}</>

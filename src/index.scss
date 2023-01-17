@@ -18,6 +18,11 @@ html{
 :root{
   --primary-color:#BE123C;
 }
+:root{
+  --z-index-highest:999999;
+  --z-index-high:99999;
+  --z-index-mid:9999;
+}
 
 .max-wrapper{
   max-width:1600px;

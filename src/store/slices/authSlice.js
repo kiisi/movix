@@ -19,6 +19,10 @@ const authSlice = createSlice({
         authUpdate: (state, action) =>{
             state.token = localStorage.getItem("_tk")
             state.user = action.payload.user
+        },
+        authLogout: (state) =>{
+            state = initState
+            localStorage.clear()
         }
     }
 })

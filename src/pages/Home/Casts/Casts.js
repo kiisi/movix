@@ -51,7 +51,6 @@ const Casts = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 setCasts((e) => [...e, ...data.results])
                 arrow_right.classList.remove("hide")
             })
