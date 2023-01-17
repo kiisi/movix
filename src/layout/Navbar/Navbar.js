@@ -24,6 +24,9 @@ const Navbar = () => {
     navigate('/login')
   }
 
+  let name = fullname.split(" ")[0].split("").slice(0, 5).join("")
+  console.log(name)
+
   return (
     <>
     <div className="nav">
@@ -36,7 +39,7 @@ const Navbar = () => {
             <span className="material-icons">search</span>
         </div>
         <div className="nav__profile">
-            <div className="nav__profile--name">Hi, {fullname}</div>
+            <div className="nav__profile--name">{name}</div>
             <div className="nav__profile--menu" onClick={showModalBottomSheet}>
               <div className="nav__profile--menu__lines"></div>
             </div>
