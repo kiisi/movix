@@ -27,7 +27,6 @@ const AuthHoc = (props) => {
         // xhr.timeout = 2000
 
         xhr.onload = function () {
-            console.log("Loading...")
             const data = JSON.parse(xhr.response)
             console.log(data)
             if (data.success) {
@@ -42,7 +41,6 @@ const AuthHoc = (props) => {
             }
         }
         xhr.onerror = function () {
-            console.log("Error...")
             toast.error("An error occurred!", {
                 position: toast.POSITION.TOP_RIGHT
             });
@@ -50,7 +48,6 @@ const AuthHoc = (props) => {
             navigate('/login')
         }
         xhr.ontimeout = function () {
-            console.log("Timeout...")
             toast.error("An error occurred!", {
                 position: toast.POSITION.TOP_RIGHT
             });
