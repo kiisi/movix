@@ -30,7 +30,6 @@ const Login = () => {
     xhr.onload = function () {
       setLoading(false)
       const data = JSON.parse(xhr.response)
-      console.log(data)
       if (data.error) {
         toast.error(data.error, {
           position: toast.POSITION.TOP_RIGHT
@@ -54,7 +53,7 @@ const Login = () => {
     }
 
     xhr.send(JSON.stringify({ email, password }))
-    
+
   }
 
   return (
