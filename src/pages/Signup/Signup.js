@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet';
 import { endpoint } from '../../utils/endpoints';
 import { toast } from 'react-toastify';
-
+import SpinnerSm from '../../components/SpinnerSm/SpinnerSm'
 
 const Signup = () => {
 
@@ -34,7 +34,7 @@ const Signup = () => {
           position: toast.POSITION.TOP_RIGHT
         });
       } else {
-        toast.error(data.error, {
+        toast.success(data.success, {
           position: toast.POSITION.TOP_RIGHT
         });
         navigate('/login')
@@ -81,7 +81,7 @@ const Signup = () => {
         <div className="signup__divider"></div>
         {
           loading ?
-          <div className="btn__auth loading">Register</div>
+          <div className="btn__auth loading"><SpinnerSm/></div>
           :
           <div className="btn__auth" onClick={submit}>Register</div>
         }

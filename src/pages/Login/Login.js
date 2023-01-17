@@ -8,6 +8,7 @@ import { endpoint } from '../../utils/endpoints';
 import { useDispatch } from 'react-redux';
 import authSlice from '../../store/slices/authSlice'
 import { toast } from 'react-toastify';
+import SpinnerSm from '../../components/SpinnerSm/SpinnerSm'
 
 const Login = () => {
   const dispatch = useDispatch()
@@ -76,7 +77,7 @@ const Login = () => {
         <div className="login__divider"></div>
         <div className="login__divider"></div>
         {loading ?
-          <div className="btn__auth loading">LOGIN</div>
+          <div className="btn__auth loading"><SpinnerSm/></div>
           :
           <div className="btn__auth" onClick={login}>LOGIN</div>
         }
