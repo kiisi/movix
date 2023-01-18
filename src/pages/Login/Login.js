@@ -22,6 +22,17 @@ const Login = () => {
 
   const login = () => {
 
+    if (!(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email))){
+      return toast.error("Invalid email", {
+        position: toast.POSITION.TOP_RIGHT
+      });
+    }
+    if(password.length < 6){
+      return toast.error("Password length: > 5", {
+        position: toast.POSITION.TOP_RIGHT
+      });
+    }
+
     setLoading(true)
     const xhr = new XMLHttpRequest()
     xhr.open('post', `${endpoint}/login`)
