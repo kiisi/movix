@@ -27,7 +27,6 @@ const AuthHoc = (props) => {
 
         xhr.onload = function () {
             const data = JSON.parse(xhr.response)
-            console.log(data)
             if (data.success) {
                 dispatch(authUpdate(data))
                 setAuth(true)
