@@ -22,7 +22,7 @@ const Footer = () => {
                 </div>
                 <div className="footer__divider"></div>
                 <div className="footer__copyright">
-                    &copy; 2023 Movix
+                    &copy; 2023 Movix by Kiisi Felix
                 </div>
             </div>
         </div>
