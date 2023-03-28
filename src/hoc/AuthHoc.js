@@ -69,31 +69,3 @@ const AuthHoc = (props) => {
 
 export default AuthHoc
 
-// useEffect(() => {
-//         if(!_tk){
-//             return navigate('/login')
-//         }
-//         fetch(endpoint, {
-//             method: 'get',
-//             headers: {
-//                 "Authorization": "Bearer " + _tk
-//             }
-//         })
-//             .then(res => {
-//                 return res.json()
-//             })
-//             .then(data => {
-//                 if (data.success) {
-//                     setAuth(true)
-//                     return dispatch(authUpdate(data))
-//                 }else{
-//                     setAuth(false)
-//                     navigate('/login')
-//                     return toast.error(data.error, {
-//                         position: toast.POSITION.TOP_RIGHT
-//                     });
-//                 }
-//             })
-//             .catch(error => console.log(error))
-
-//     },[_tk])
